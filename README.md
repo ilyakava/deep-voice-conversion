@@ -40,6 +40,12 @@ CBHG is known to be good for capturing features from sequential data.
   * contains 630 speakers' utterances and corresponding phones that speaks similar sentences.
 * Over 70% test accuracy
 
+#### Performance
+
+Top row is in epochs, bottom row is in hours, on a single GPU.
+
+![net1_eval](notes/net1_eval.png)
+
 ### Net2 is a synthesizer.
 Net2 contains Net1 as a sub-network.
 * Process: net1(wav -> spectrogram -> mfccs -> phoneme dist.) -> spectrogram -> wav
@@ -53,11 +59,18 @@ Net2 contains Net1 as a sub-network.
 * Griffin-Lim reconstruction when reverting wav from spectrogram.
 
 ## Implementations
-### Requirements
-* python 2.7
-* tensorflow >= 1.1
-* numpy >= 1.11.1
-* librosa == 0.5.1
+
+### Requirements/Works on:
+
+* python 2.7.17
+* tensorflow-gpu == 1.8
+* numpy == 1.14
+* librosa == 0.6
+* joblib == 0.11.0
+* tensorpack == 0.8.6
+* cuda/9.0.176
+* cudnn/v7.0
+* ffmpeg/4.2.1
 
 ### Settings
 * sample rate: 16,000Hz
