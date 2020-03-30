@@ -79,7 +79,7 @@ def get_mfccs_and_phones(wav_file, trim=False, random_crop=True):
     num_timesteps = mfccs.shape[0]
 
     # phones (targets)
-    phn_file = wav_file.replace("WAV.wav", "PHN").replace("wav", "PHN")
+    phn_file = wav_file.replace("WAV", "PHN")
     phn2idx, idx2phn = load_vocab()
     phns = np.zeros(shape=(num_timesteps,))
     bnd_list = []
@@ -145,7 +145,7 @@ def _get_mfcc_and_spec(wav, preemphasis_coeff, n_fft, win_length, hop_length):
     mag = np.abs(D)
 
     # Get mel-spectrogram
-    mel_basis = librosa.filters.mel(hp.default.sr, hp.default.n_fft, hp.default.n_mels)  # (n_mels, 1+n_fft//2)
+    mel_basis = librosa.filters.mel(hp.default.sr, n_fft, hp.default.n_mels)  # (n_mels, 1+n_fft//2)
     mel = np.dot(mel_basis, mag)  # (n_mels, t) # mel spectrogram
 
     # Get mfccs, amp to db

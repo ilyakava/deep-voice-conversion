@@ -25,11 +25,11 @@ default:
     # train
     batch_size: 32
 
-logdir_path: '/data/private/vc/logdir'
+logdir_path: '/scratch0/ilya/locDoc/adv_audio_tf_board/deep-voice-conversion'
 
 train1:
     # path
-    data_path: '/data/private/vc/datasets/timit/TIMIT/TRAIN/*/*/*.wav'
+    data_path: '/scratch0/ilya/locDoc/data/TIMIT/TRAIN/*/*/*.WAV'
 
     # model
     hidden_units: 128  # alias: E
@@ -75,7 +75,7 @@ train2:
 ---
 test1:
     # path
-    data_path: '/data/private/vc/datasets/timit/TIMIT/TEST/*/*/*.wav'
+    data_path: '/scratch0/ilya/locDoc/data/TIMIT/TEST/*/*/*.WAV'
 
     # test
     batch_size: 32
